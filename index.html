@@ -3,13 +3,106 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title></title>
+    <title>Фото в Саранске</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url("res/low_contrast_linen.png");
+
+        }
+
+        a, div{
+            color: white;
+            font-family: "Tahoma";
+            font-size: 18px;
+        }
+
+
+
+        #sidebar{
+            position: fixed;
+            width: 300px;
+            background: rgba(0,0,0,0.4);
+            height: 100%;
+            padding-top: 300px;
+            padding-left: 20px;
+
+
+        }
+
+        #content {
+            margin-right: 20px;
+            text-align: right;
+        }
+
+        .info-item{
+            margin: 10px 0;
+        }
+
+        .info-item img{
+            vertical-align: middle;
+            margin-right:10px;
+        }
+
+        #content img{
+            margin: 20px 10px;
+            border: 10px solid white;
+            -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.8);
+            -moz-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.8);
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+
+
+
+
+    <script type="text/javascript" src="http://yandex.st/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        var imgList = ["photos/1.jpg", "photos/2.jpg", "photos/3.jpg", "photos/4.jpg", "photos/6.jpg","photos/7.jpg"];
+
+        $().ready(function () {
+            var content = $("#content");
+
+            for(var i=0; i<imgList.length;i++){
+                var img = $(document.createElement("img"));
+                img.attr("src", imgList[i]);
+                content.append(img);
+            }
+        });
+
+
+    </script>
 </head>
-<body style='background: url("photos/test.jpg")'>
-<h1 style="text-align: center;font-size: 50px;font-weight: bold; width: 500px; border-radius: 20px; background-color: rgba(255,255,255,0.6); margin: 300px auto;">
-    Свадебное фото в Саранске!
+<body>
+<div id="sidebar">
+    <div class="info-item">
+        <img src="res/phone_2.png">+7 (917) 992-39-98, Ринат
+    </div>
+    <div class="info-item">
+        <img src="res/cur_dollar.png">Цены: 2т.р/час, 12т.р/день
+    </div>
+    <div class="info-item">
+        <img src="res/mail_2.png">yangibaev.rinat@gmail.com
+    </div>
+    <div class="info-item">
+        <img src="res/spechbubble_2.png"><a href="http://vk.com/write8384459" target="_blank">Написать в Вконтакте</a>
+    </div>
+    <div class="info-item">
+        <img src="res/photo.png">Canon 5D Mark II
+    </div>
     <br>
-    тел. 2-02.69
-</h1>
+    <div id="vk_like"></div>
+    <script type="text/javascript" src="http://userapi.com/js/api/openapi.js?52"></script>
+    <script type="text/javascript">
+        VK.init({apiId: 3150447, onlyWidgets: true});
+    </script>
+    <script type="text/javascript">
+        VK.Widgets.Like("vk_like", {type: "full", height: 24});
+    </script>
+</div>
+<div id="content">
+</div>
 </body>
 </html>
